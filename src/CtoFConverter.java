@@ -2,25 +2,34 @@ import java.util.Scanner;
 
 public class CtoFConverter {
     public static void main(String[] args) {
-        // Pseudocode: Prompt user for Celsius input → convert to Fahrenheit → print result and handle freezing/boiling
-        Scanner scanner = new Scanner(System.in);
-        boolean valid = false;
+        // Create Scanner and declare variables
+        Scanner in = new Scanner(System.in);
         double celsius = 0;
+        double fahrenheit;
+        String trash = "";
+        boolean done = false;
 
+        // Prompt for Celsius input using do-while loop
         do {
             System.out.print("Enter temperature in Celsius: ");
-            if (scanner.hasNextDouble()) {
-                celsius = scanner.nextDouble();
-                valid = true;
+            if (in.hasNextDouble()) {
+                celsius = in.nextDouble();
+                in.nextLine(); // clear buffer
+                done = true;
             } else {
-                String badInput = scanner.next();
-                System.out.println("You must enter a valid number. You entered: \"" + badInput + "\"");
+                trash = in.nextLine();
+                System.out.println("You must enter a valid number. You entered: \"" + trash + "\"");
             }
-        } while (!valid);
+        } while (!done);
 
-        double fahrenheit = (celsius * 9 / 5) + 32;
-        System.out.printf("%.1f°C is %.1f°F%n", celsius, fahrenheit);
+        // Convert to Fahrenheit
+        fahrenheit = (celsius * 9 / 5) + 32;
 
+        // Display results using println
+        System.out.println("Celsius: " + celsius);
+        System.out.println("Fahrenheit: " + fahrenheit);
+
+        // Check for freezing or boiling point
         if (celsius == 0) {
             System.out.println("That's the freezing point of water.");
         } else if (celsius == 100) {
@@ -28,5 +37,3 @@ public class CtoFConverter {
         }
     }
 }
-
-

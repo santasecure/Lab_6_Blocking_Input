@@ -10,7 +10,7 @@ public class FuelCosts {
         String trash = "";
         boolean done = false;
 
-        // Get number of gallons
+        // Get number of gallons with validation loop
         do {
             System.out.print("Enter the number of gallons of gas in the tank: ");
             if (in.hasNextDouble()) {
@@ -27,7 +27,7 @@ public class FuelCosts {
         // Reset done
         done = false;
 
-        // Get fuel efficiency
+        // Get fuel efficiency with validation loop
         do {
             System.out.print("Enter the fuel efficiency in miles per gallon: ");
             if (in.hasNextDouble()) {
@@ -44,7 +44,7 @@ public class FuelCosts {
         // Reset done
         done = false;
 
-        // Get price per gallon
+        // Get price per gallon with validation loop
         do {
             System.out.print("Enter the price of gas per gallon: ");
             if (in.hasNextDouble()) {
@@ -58,13 +58,13 @@ public class FuelCosts {
             }
         } while (!done);
 
-        // Calculate cost to drive 100 miles and distance with full tank
+        // Calculate cost to drive 100 miles and max distance
         double costPer100Miles = (100 / mpg) * pricePerGallon;
         double maxDistance = gallons * mpg;
 
-        // Print results
-        System.out.printf("Cost to drive 100 miles: $%.2f%n", costPer100Miles);
-        System.out.printf("Distance car can go on full tank: %.2f miles%n", maxDistance);
+        // Print results using println
+        System.out.println("Cost to drive 100 miles: $" + costPer100Miles);
+        System.out.println("Distance car can go on full tank: " + maxDistance + " miles");
     }
 }
 
